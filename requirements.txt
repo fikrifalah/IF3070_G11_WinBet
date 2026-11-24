@@ -1,0 +1,16 @@
+# Core numerical computations
+numpy>=1.26.0
+
+# Data manipulation and dataset handling (CSV, tables)
+pandas>=2.0.0
+
+# Plotting and visualization (regression line, loss curves, residual plots)
+matplotlib>=3.8.0
+seaborn>=0.13.0
+
+# For benchmarking, evaluation metrics, and train/test splitting
+scikit-learn>=1.4.0
+
+# Jupyter Notebook support
+notebook>=7.0.0
+ipykernel>=6.29.0
