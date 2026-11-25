@@ -1,4 +1,5 @@
 
+import pickle
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -74,24 +75,18 @@ class linear_regression():
         plt.legend()
         plt.show()
 
-    def plot_regression(self, features, target):
-        """Plot regression line (khusus 1 feature)."""
-        if features.shape[1] > 1:
-            print("Visualisasi garis regresi langsung hanya mendukung 1 feature!")
-            return
-        plt.figure(figsize=(8, 5))
-        # Titik data asli
-        plt.scatter(features, target, color='blue', alpha=0.6, label='Data Aktual')
-        # Garis prediksi
-        x_line = np.linspace(features.min(), features.max(), 100).reshape(-1, 1)
-        y_line = self.predict(x_line)
-        plt.plot(x_line, y_line, color='red', linewidth=2, label='Garis Regresi')
-        plt.title('Fit Garis Linear Regression')
-        plt.xlabel('Feature')
-        plt.ylabel('Target')
-        plt.grid(True)
-        plt.legend()
-        plt.show()
+    def save(self, filepath: str):
+        with open(filepath, 'wb') as f:
+            pickle.dump(self, f)
+        print(f"Model berhasil disimpan ke {filepath}")
+
+    
+    def load(cls, filepath: str):
+        
+        with open(filepath, 'rb') as f:
+            model = pickle.load(f)
+        print(f"Model berhasil dimuat dari {filepath}")
+        return model
 
 
 
